@@ -1,0 +1,6 @@
+framework module Pods_LongLabelShowTestTab {
+  umbrella header "Pods-LongLabelShowTestTab-umbrella.h"
+
+  export *
+  module * { export * }
+}
