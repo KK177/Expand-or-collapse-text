@@ -78,8 +78,8 @@
         .topEqualToView(self.contentView)
         .heightIs(statusMattStrRect.size.height);
     }
-    
-    [self setupAutoHeightWithBottomView:self.textView bottomMargin:0];
+
+    [self setupAutoHeightWithBottomView:self.textView bottomMargin:20];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

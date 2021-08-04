@@ -265,6 +265,7 @@
         
         if (model && keyPath) {
             [self.modelCell setValue:model forKey:keyPath];
+            
         } else if (self.cellDataSetting) {
             self.cellDataSetting(self.modelCell);
         }

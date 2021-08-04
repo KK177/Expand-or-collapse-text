@@ -10,6 +10,7 @@
 #import "YTableViewCell.h"
 #import "model.h"
 
+
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -49,6 +50,7 @@
     
     //初始化tableView
     [self initTab];
+    
 }
 
 - (void)initDataSource {
@@ -81,7 +83,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    YTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YTabCellID"];
+    YTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YTabCellID" ];
     model *mol = self.dataArr[indexPath.row];
     [cell initMol:mol];
     __weak typeof(self)weakself = self;
@@ -92,6 +94,7 @@
         [weakself.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         //[weakself.tableView reloadData];
     };
+    cell.mol = mol;
     return cell;
 }
 
@@ -100,8 +103,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:tableView];
+    model *mol = self.dataArr[indexPath.row];
+    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:self.view.frame.size.width tableView:tableView] + 20;
 }
 
 @end

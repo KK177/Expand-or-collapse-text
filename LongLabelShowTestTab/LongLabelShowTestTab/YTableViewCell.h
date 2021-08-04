@@ -10,11 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 typedef void(^openBlock)(void);
+
 @interface YTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UITextView *textView;
 
 @property (nonatomic, copy) openBlock blk;
+
+@property (nonatomic, strong) model *mol;
+
+- (NSString *)str;
 
 - (void)initMol:(model *)mol;
 @end
